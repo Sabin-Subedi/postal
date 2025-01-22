@@ -1,7 +1,7 @@
-# frozen_string_literal: true
+# app/controllers/legacy_api/domain_api_controller.rb
 
 module LegacyAPI
-  class DomainsController < BaseController
+  class DomainAPIController < BaseController
     # Create a domain
     #
     #   URL:            /api/v1/domains/create
