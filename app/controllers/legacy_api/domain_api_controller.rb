@@ -137,7 +137,6 @@ module LegacyAPI
         dkim_record: domain.dkim_record,
         dkim_identifier: domain.dkim_identifier,
         spf_record: domain.spf_record,
-        spf_identifier: domain.spf_identifier,
         return_path_domain: domain.return_path_domain
       }
     end
