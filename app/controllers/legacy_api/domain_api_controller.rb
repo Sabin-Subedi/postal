@@ -125,16 +125,18 @@ module LegacyAPI
         verification_method: domain.verification_method,
         owner_type: domain.owner_type,
         owner_id: domain.owner_id,
-        verified_at: domain.verified_at&.to_f
+        verified_at: domain.verified_at&.to_f,
         spf_status: domain.spf_status,
         spf_error: domain.spf_error,
         dkim_status: domain.dkim_status,
-        dkim_error: domain.dkim_error
+        dkim_error: domain.dkim_error,
+        mx_status: domain.mx_status,
+        mx_error: domain.mx_error,
         return_path_status: domain.return_path_status,
         return_path_error: domain.return_path_error,
         dkim_record: domain.dkim_record,
         dkim_identifier: domain.dkim_identifier,
-        spf_record: domain.spf_record
+        spf_record: domain.spf_record,
         spf_identifier: domain.spf_identifier,
         return_path_domain: domain.return_path_domain
       }
