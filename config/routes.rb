@@ -7,6 +7,18 @@ Rails.application.routes.draw do
   match "/api/v1/messages/message" => "legacy_api/messages#message", via: [:get, :post, :patch, :put]
   match "/api/v1/messages/deliveries" => "legacy_api/messages#deliveries", via: [:get, :post, :patch, :put]
 
+  namespace :api do
+    namespace :v1 do # Adjust the version or namespace as needed
+      resources :domains, only: [] do
+        collection do
+          post :create
+          get :query
+          get :check
+          delete :delete
+        end
+      end
+    end
+  end
 
   scope "org/:org_permalink", as: "organization" do
     resources :domains, only: [:index, :new, :create, :destroy] do
@@ -101,20 +113,4 @@ Rails.application.routes.draw do
   get "ip" => "sessions#ip"
 
   root "organizations#index"
-end
-
-
-Rails.application.routes.draw do
-  namespace :api do
-    namespace :v1 do # Adjust the version or namespace as needed
-      resources :domains, only: [] do
-        collection do
-          post :create
-          get :query
-          get :check
-          delete :delete
-        end
-      end
-    end
-  end
 end
