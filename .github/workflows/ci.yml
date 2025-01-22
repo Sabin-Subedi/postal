@@ -94,7 +94,9 @@ jobs:
           REF="${GITHUB_REF#refs/heads/}"
           if [ -z "$REF" ]; then exit 1; fi
 
-          VER="$(git describe --tags 2>/dev/null)"
+          # Use fallback version if no tags are found
+          VER="$(git describe --tags 2>/dev/null || echo 'v0.0.0')"
+
           echo "version=${VER}" >> "$GITHUB_OUTPUT"
           echo "branch=${REF}" >> "$GITHUB_OUTPUT"
 
